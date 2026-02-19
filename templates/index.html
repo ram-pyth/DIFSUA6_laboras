@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Projektų lentelė</h4>
+<form action="" method="get">
+    <p><input type="text" name="paieska"></p>
+    <p><input type="submit" value="filtruoti"></p>
+    <p><a href="/new">Įvesti naują projektą</a></p>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>pavadinimas</th>
+        <th>plotas</th>
+        <th>kaina</th>
+        <th>kaina pvm</th>
+        <th>1kv kaina</th>
+        <th>veiksmai</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in all_rows %}
+    <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.pavadinimas }}</td>
+        <td>{{ row.plotas }}</td>
+        <td>{{ row.kaina }}</td>
+        <td>{{ row.kaina_pvm }}</td>
+        <td>{{ row.kv1_kaina }}</td>
+        <td><a class="btn" href="/projektai/{{ row.id }}">žiūrėti</a>
+            <a class="btn" href="/projektai/update/{{ row.id }}">redaguoti</a>
+            <form action="/projektai/delete/{{ row.id }}" method="post" style="display:inline;" >
+                <input class="btn" type="submit" value="ištrinti">
+            </form>
+        </td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

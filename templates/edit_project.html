@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Projekto duomenų taisymas</h4>
+<form action="" method="post">
+    <p>Projekto pavadinimas</p>
+    <p><input type="text" name="pavadinimas" value="{{ one_project_row.pavadinimas }}"></p>
+    <p>Plotas kv metrais</p>
+    <p><input type="text" name="plotas" value="{{ one_project_row.plotas }}"></p>
+    <p>Kaina tūkstančiais</p>
+    <p><input type="text" name="kaina" value="{{ one_project_row.kaina }}"></p>
+    <p><input type="submit" value="Įrašyti į db"></p>
+</form>
+{% endblock %}

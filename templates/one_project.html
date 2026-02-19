@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>{{ one_project_row.pavadinimas }}</h4>
+<p>id: {{ one_project_row.id }}</p>
+<p>plotas: {{ one_project_row.plotas }}</p>
+<p>kaina: {{ one_project_row.kaina }}</p>
+<p>kaina su PVM: {{ one_project_row.kaina_pvm }}</p>
+<p>1 kv m. kaina be PVM: {{ one_project_row.kv1_kaina }}</p>
+<p>{{ one_project_row.ivedimo_data }}</p>
+ <hr style="width:50%;text-align:left;margin-left:0">
+<h5>Atlikti darbai:</h5>
+<ul>
+    {% for darbas in one_project_row.atlikti_darbai %}
+    <li>{{ darbas }}</li>
+    {% endfor %}
+</ul>
+<p>Atlikta darbų už: {{ one_project_row.atlikti_darbai | sum(attribute='samata') }}</p>
+
+ <hr style="width:50%;text-align:left;margin-left:0">
+<form action="" method="post">
+    <p>Atliktas darbas: <input type="text" name="darbas"></p>
+    <p>Sąmata: <input type="text" name="samata"></p>
+    <p>Įmonė: <input type="text" name="imone"></p>
+    <p><input class="btn" type="submit" value="Įrašyti į db"></p>
+</form>
+
+{% endblock %}

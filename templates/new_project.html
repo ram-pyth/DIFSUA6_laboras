@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Naujo projekto įvedimas</h4>
+<form action="" method="post">
+    <p>Projekto pavadinimas</p>
+    <p><input type="text" name="pavadinimas"></p>
+    <p>Plotas kv metrais</p>
+    <p><input type="text" name="plotas"></p>
+    <p>Kaina tūkstančiais</p>
+    <p><input type="text" name="kaina"></p>
+    <p><input type="submit" value="Įrašyti į db"></p>
+</form>
+{% endblock %}
