@@ -33,6 +33,7 @@ def show_all_rows():
     return render_template('index.html', all_rows=all_rows)
 
 
+
 @app.route("/projektai/<int:projekto_id>", methods=['POST', 'GET'])
 def show_one_project(projekto_id):
     """
